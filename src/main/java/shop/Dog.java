@@ -32,6 +32,10 @@ public class Dog extends Animal {
         this.age = age;
     }
 
+    private void privateMethod() {
+        System.out.println("private method! keep away");
+    }
+
     @Override
     public String toString() {
         return "Dog{" +

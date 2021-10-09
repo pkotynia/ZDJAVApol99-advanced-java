@@ -11,7 +11,8 @@ import java.util.stream.Stream;
 public class StreamsClient {
 
     public static void main(String[] args) {
-        List<Integer> integers = List.of(1,2,3,4,5,6,7,8,9);
+        //var keyword allows java to perform type inference
+        var integers = List.of(1,2,3,4,5,6,7,8,9);
 
         List<Integer> results = new ArrayList<>();
         for (Integer integer : integers) {
@@ -28,7 +29,7 @@ public class StreamsClient {
                         return integer > 2;
                     }
                 })
-                .filter(integer -> integer < 7)
+                .filter(element -> element < 7)
                 .collect(Collectors.toUnmodifiableList());
 
 //        System.out.println(results);

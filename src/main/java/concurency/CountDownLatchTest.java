@@ -7,11 +7,11 @@ public class CountDownLatchTest {
 
     public static void main(String[] args) {
 
-        CountDownLatch countDownLatch = new CountDownLatch(5);
+        CountDownLatch countDownLatch = new CountDownLatch(6);
 
-        Stream.generate(() -> new Worker(countDownLatch))
+        Stream.generate(() -> new Task(countDownLatch))
                 .limit(5)
-                .map(worker -> new Thread(worker))
+                .map(task -> new Thread(task))
                 .forEach(thread -> thread.start());
 
         try {

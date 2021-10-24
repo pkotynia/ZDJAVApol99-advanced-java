@@ -2,11 +2,11 @@ package concurency;
 
 import java.util.concurrent.CountDownLatch;
 
-public class Worker implements Runnable {
+public class Task implements Runnable {
 
     private final CountDownLatch countDownLatch;
 
-    public Worker(CountDownLatch countDownLatch) {
+    public Task(CountDownLatch countDownLatch) {
         this.countDownLatch = countDownLatch;
     }
 

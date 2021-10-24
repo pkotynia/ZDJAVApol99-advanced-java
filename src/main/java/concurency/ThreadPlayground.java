@@ -1,8 +1,5 @@
 package concurency;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class ThreadPlayground {
 
     // this one is to show dependency injection

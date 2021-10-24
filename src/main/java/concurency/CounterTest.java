@@ -8,15 +8,17 @@ public class CounterTest {
 
     public static void main(String[] args) {
         //we are using ExecutorService to create pool of 5 reusable threads
-        ExecutorService executorService = Executors.newFixedThreadPool(5);
+        ExecutorService executorService = Executors.newCachedThreadPool();
 
-        AtomicThreadSafeCounter counter = new AtomicThreadSafeCounter();
+        //AtomicThreadSafeCounter counter = new AtomicThreadSafeCounter();
         //ThreadSafeCounter counter = new ThreadSafeCounter();
-        //Counter counter = new Counter();
+        Counter counter = new Counter();
 
         //we are submiting 2000 increment counter tasks to be run by executorService on 5 threads pool
         for (int i = 0; i < 2000; i++) {
-            executorService.submit(() -> counter.increment());
+            executorService.submit(() -> {
+                System.out.println(Thread.currentThread().getName());
+                counter.increment(); });
         }
 
         //giving time for main thread to proceed

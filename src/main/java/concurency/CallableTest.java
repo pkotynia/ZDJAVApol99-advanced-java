@@ -11,8 +11,14 @@ public class CallableTest {
         CallableTask callableTask = new CallableTask();
         ExecutorService executorService = Executors.newSingleThreadExecutor();
         Future<String> futureTask = executorService.submit(callableTask);
+//        try {
+//            String call = callableTask.call();
+//            System.out.println(call);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
 
-        System.out.println("Doing some important work");
+        System.out.println("Doing some important work in thread " + Thread.currentThread().getName() );
 
         try {
             System.out.println("Result of future task " + futureTask.get());
